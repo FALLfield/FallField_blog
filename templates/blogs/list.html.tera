@@ -1,0 +1,93 @@
+{% extends "base" %}
+
+{% block content %}
+<div class="blog-container">
+    <h1 class="page-title">{{ title }}</h1>
+
+    <div class="blog-grid">
+        {% for blog in blogs %}
+        <article class="blog-card">
+            <div class="blog-content">
+                <h2 class="blog-title">{{ blog.0 }}</h2>
+                <p class="blog-excerpt">{{ blog.1 }}</p>
+                <div class="blog-meta">
+                    <span class="blog-date">April 10, 2025</span>
+                    <span class="blog-read-time">5 min read</span>
+                </div>
+                <a href="/blogs/{{ blog.0 }}" class="blog-read-more">Read More →</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .blog-container {
+        max-width: 1012px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    .page-title {
+        font-size: 2em;
+        margin-bottom: 1.5em;
+        color: var(--color-text);
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.5em;
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .blog-card {
+        background: var(--color-card-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .blog-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--color-link);
+    }
+
+    .blog-content {
+        padding: 20px;
+    }
+
+    .blog-title {
+        font-size: 1.25em;
+        margin-bottom: 10px;
+        color: var(--color-link);
+    }
+
+    .blog-excerpt {
+        color: var(--color-text-secondary);
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .blog-meta {
+        display: flex;
+        gap: 16px;
+        font-size: 0.875em;
+        color: var(--color-text-secondary);
+        margin-bottom: 15px;
+    }
+
+    .blog-read-more {
+        display: inline-block;
+        color: var(--color-link);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .blog-read-more:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

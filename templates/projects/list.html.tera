@@ -1,0 +1,15 @@
+{% extends "base" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<div class="projects-grid">
+    {% for project in projects %}
+    <div class="project-card">
+        <h2>{{ project.0 }}</h2>
+        <p>{{ project.1 }}</p>
+        <a href="/projects/{{ project.0 }}">View Details</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

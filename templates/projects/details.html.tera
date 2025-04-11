@@ -1,0 +1,23 @@
+{% extends "base" %}
+
+{% block content %}
+<h1>{{ project_name }}</h1>
+
+<div class="project-details">
+    <div class="description">
+        <h2>Project Description</h2>
+        <p>{{ description }}</p>
+    </div>
+    
+    <div class="tech-stack">
+        <h2>Technologies</h2>
+        <p>{{ tech_stack }}</p>
+    </div>
+    
+    {% if github_link %}
+    <div class="links">
+        <a href="{{ github_link }}" target="_blank" class="github-link">GitHub Repository</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
